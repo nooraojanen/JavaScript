@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T1</title>
+</head>
+<body>
+
+    <div class="header">
+        <h1 style="margin:50px;font-size:60px">SimpleToDo</h1>
+        <h2 style="margin:50px;font-size: 40px;">ToDo:</h2>
+        <input style="margin-left:50px;font-size: 30px;" type="text" id="newTodo"><br><br>
+        <button onclick="tulostaTehtävä()" style="margin-left:50px; font-size: 20px;">Lisää</button>
+        <button onclick="tyhjääLista()" style="margin-left:10px; font-size: 20px;">Tyhjää lista</button>
+    </div>
+
+    <h2 style="margin:50px;font-size: 40px;">Todo's:</h2>
+    <ul style="margin-left:70px;font-size: 30px;" id="lista"></ul>
+
+    <script>
+      // add a new todo to list
+    function tulostaTehtävä() {
+    // newTodo input-element
+    var newTodo = document.getElementById("newTodo");
+    // create li-element
+    var li = document.createElement("li");
+    var text = document.createTextNode(newTodo.value); 
+    // text node to li-element
+    li.appendChild(text);
+    // add todo to todolist
+    document.getElementById("lista").appendChild(li);
+}
+
+    // delete all todos
+    function tyhjääLista() {
+    var lista = document.getElementById("lista");
+    while (lista.firstChild) {
+        lista.removeChild(lista.firstChild);
+    }
+}
+    </script>
+</body>
+</html>

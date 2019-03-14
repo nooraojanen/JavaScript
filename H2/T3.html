@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>T3</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h3>Tehtävä 3</h3>
+    <h1>Taulukon [11, 22 ,33, 44] läpikäyntiä</h1>
+    <h2>Tulostamista ja keskeisten suureiden laskemista anonyymeillä funktioilla</h2>
+        
+    <p id="demo"></p>
+    <script>
+        const numbers = [11, 22, 33, 44];
+        console.log(numbers);
+        let tulos = '';
+        const reducer = (accumulator, currentValue) => accumulator + currentValue;
+        
+        let lkm = 0;
+        let sum = 0;
+        let ka = 0;
+        
+        console.log(numbers.reduce(reducer));
+        
+        function arraySum(numbers) {
+            for(let i = 0; i < numbers.length; i++) {
+                sum += numbers[i];
+            }
+            return sum;
+        }
+        console.log(arraySum(numbers));
+        
+        function arrayCount(numbers) {
+            lkm = numbers.length;
+        }
+        console.log(arrayCount(numbers));
+        
+        function arrayAvg(numbers) {
+            ka = sum/lkm;
+        }
+        console.log(arrayAvg(numbers));
+        
+        /*function printArray(numbers){
+            taulukko[0] = 11
+            taulukko[1] = 22
+            taulukko[2] = 33
+            taulukko[3] = 44
+        }
+        console.log(printArray(numbers));*/
+
+        
+        let sisalto = `
+        Alkiot ovat:<br><br> taulukko[0] = "+ numbers[0] + "<br>taulukko[1] = " + numbers[1] + "<br> taulukko[2] = " + numbers[2] + "<br> taulukko[3] = " + numbers[3] + "<br><br> Lukumäärä on: " + lkm + "<br> Summa on: " + sum + "<br> Keskiarvo on: " + ka;
+        
+        `;
+        para.innerHTML = sisalto;
+    </script>
+</body>
+</html>

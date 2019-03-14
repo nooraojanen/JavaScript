@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T2</title>
+    <link rel="stylesheet" type="text/css" href="T2.css">
+</head>
+<body>
+    <div id="container">
+        <h1>Tehtävälista</h1>
+        <form id="addItems">
+            <input type="text" id="newTodo"/>
+            <button onclick="addTodo();">Lisää</button>
+        </form>
+        <div>
+            <ul id="todoList"></ul>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+        // add a new todo to list
+        function addTodo() {
+            // newTodo input-element
+            var newTodo = document.getElementById("newTodo");
+            // create li-element
+            var li = document.createElement("li");
+            var text = document.createTextNode(newTodo.value); // <li>soita..</li>
+            // text node to li-element
+            li.appendChild(text);
+    
+            var input = document.createElement("input");
+            input.setAttribute("type","image");
+            input.setAttribute("src","delete.jpg");
+            input.setAttribute("width","12");
+            input.setAttribute("height","12");
+            input.onclick = removeTodo;
+            // add to li
+            li.appendChild(input);
+            // add todo to todolist
+            document.getElementById("todoList").appendChild(li);
+        }
+
+        // remove one todo
+        function removeTodo() {
+            var li = this.parentNode; // li-element
+            li.parentNode.removeChild(li);
+        }
+    </script>
+   
+</body>
+</html>

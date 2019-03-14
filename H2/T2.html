@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>T2</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h3>Tehtävä 2</h3>
+    <h1>Taulukon [11, 22 ,33, 44] läpikäyntiä</h1>
+    <h2>Tulostamista ja keskeisten suureiden laskemista anonyymeillä funktioilla</h2>
+        
+    <p id="demo"></p>
+    <script>
+        const numbers = [11, 22, 33, 44];
+        console.log(numbers);
+        
+        let lkm = 0;
+        let sum = 0;
+        let tulos = 0;
+        let ka = 0;
+        
+        function arraySum(numbers) {
+            for(let i = 0; i < numbers.length; i++) {
+                sum += numbers[i];
+            }
+            return sum;
+        }
+        console.log(arraySum(numbers));
+        
+        function arrayCount(numbers) {
+            lkm = numbers.length;
+        }
+        console.log(arrayCount(numbers));
+        
+        function arrayAvg(numbers) {
+            ka = sum/lkm;
+        }
+        console.log(arrayAvg(numbers));
+        
+        function printArray(numbers){
+            let i;
+            let arrayContent = ' ';
+            for (i in numbers) {
+                arrayContent += `<p>taulukko[${i}]=${numbers[i]}<p>`;
+            }
+            return arrayContent;
+        }
+        
+        const print = printArray(numbers);
+        
+        function writeResults() {
+            document.getElementById("demo").innerHTML = "Alkiot ovat: <br><br> " + print + " <br><br> Lukumäärä on: " + lkm + "<br> Summa on: " + sum + "<br> Keskiarvo on: " + ka;
+        }
+        
+        window.onload = writeResults;
+    </script>
+</body>
+</html>

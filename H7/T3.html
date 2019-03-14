@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>T3</title>
+        <meta charset="UTF-8">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    </head>
+    
+    <body onload="drawChart();">
+        <h2>Autolaskuri</h2>
+        <input type="button" name="f" value="Ford" onclick="addCar(0)">
+        <input type="button" name="o" value="Opel" onclick="addCar(1)">
+        <input type="button" name="t" value="Toyota" onclick="addCar(2)">
+        <input type="button" name="n" value="Nollaa" onclick="clearAll()">
+        <p></p>
+        <canvas id="myChart" width="400" height="400"></canvas>
+        
+        <script>
+        var ctx = document.getElementById("myChart").getContext('2d');
+        
+        myBarChart = new Chart(ctx, {
+            // The type of chart we want to create
+            // type: 'horizontalBar',
+            type: 'bar',
+
+            // The data for our dataset
+            data: {
+                labels: ["Ford", "Opel", "Toyota"],
+                datasets: [{
+                    label: "Autojen lukumäärät",
+                    data: [4, 7, 3],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+
+            // Configuration options go here (kokoonpano, rakenne, muoto)
+            options: {
+            responsive: false,
+                scales: {
+                    yAxes: [{
+                        barThickness: 50,
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }],
+                    xAxes: [{
+                        barThickness: 50
+                    }]
+                }
+        }
+        });
+        
+        // lisätään autoja
+        function addCar(i) {
+            myBarChart.data.datasets[0].data[i] = myBarChart.data.datasets[0].data[i] + 1;
+            myBarChart.update();
+        }
+
+        // nollataan kaikki autot
+        function clearAll() {
+            myBarChart.data.datasets[0].data[0] = 0;
+            myBarChart.data.datasets[0].data[1] = 0;
+            myBarChart.data.datasets[0].data[2] = 0;
+            myBarChart.update();
+        }
+        </script>
+    </body>
+</html>

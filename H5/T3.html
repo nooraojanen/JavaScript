@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            margin: 20px;
+            padding: 20px;
+        }
+
+        section {
+            width: 500px;
+            border: 1px solid rgb(209, 131, 131);
+            background-color: white;
+            color: black;
+        }
+
+        article h3 {
+            color: white;
+            background-color: rgb(226, 134, 134);
+            padding: 4px;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            cursor: pointer;
+        }
+
+        p {
+            display:none;
+            padding:4px;
+        }
+
+    </style>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <section>
+            <article>
+                <h3>Viranomaisilla menossa valmiusharjoitus salaisessa paikassa Etelä-Suomessa</h3>
+                <p>Ilta-Sanomat vieraili harjoituksessa, jossa viranomaiset ja huoltovarmuuskriittiset organisaatiot valmistautuivat Suomeen kohdistuneeseen ja yhteyskunnan toiminnot kaataneeseen kyberhyökkäykseen.</p>
+            </article>
+            <article>
+                <h3>Helsinkiläinen Jan, 42, sai eteensä tarkat luvut, mihin hänen rahansa kaupassa todella menevät – yksi tuote nousi aivan omaan luokkaansa</h3>
+                <p>Ostatko kaupasta enemmän suklaata vai salaattia? Tämän voi nyt selvittää S-ryhmän uudesta palvelusta. Omat ostot -palvelun avulla asiakas voi seurata omaa kulutustaan. Niin teki myös Jan Ruusuvuori.</p>
+            </article>
+            <article>
+                <h3>Kansanedustajia ja liikemiehiä kuljettanut DC-3 syöksyi tuhoisin seurauksin järveen – Tarja Halonen selvisi täpärästi lentoturmasta tasan 40 vuotta sitten</h3>
+                <p>Kaikki koneessa olleet kuolivat, kun Suomen ilmavoimille kuulunut DC-3-matkustajakone syöksyi järveen heti ilmaannousun jälkeen. Lokakuun 3. päivänä 1978 tapahtuneesta turmasta tulee kuluneeksi keskiviikkona tasan 40 vuotta.</p>
+            </article>
+            <article>
+                <h3>Poliittinen lakko jakoi mielipiteet täysin – näin vastakkaisia kommentteja suomalaiset laukoivat keskiviikkona</h3>
+                <p>Poliittinen lakko keräsi Helsingin kaduilla sekä hyväksyviä että jyrkästi kielteisiä kommentteja. Useat ammattiyhdistykset jäivät tänään keskiviikkona poliittisen lakkoon vuorokauden ajaksi. Liitot vastustavat lakolla hallituksen kaavailemia heikennyksiä pienten yritysten irtisanomissuojaan.</p>
+            </article>
+        </section>
+        
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("h3").click(function() {  // painettaessa otsikkoa
+                $(this).next().toggle(200);   // tulee esiin 200 millisekunnissa 
+                });         
+            });
+        </script>
+</body>
+</html>

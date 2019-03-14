@@ -1,0 +1,19 @@
+{
+    "talot":
+        [
+        {
+            "kuva":"images/talo4.jpg",
+            "osoite":"Kunnallisneuvoksentie 8 A, 00930 Helsinki",
+            "koko":"6h+k+takkah+kph+sauna+2kph+wc",
+            "kuvaus":"Helsingin keskustan upeimmasta arvoyhtiöstä on nyt tarjolla kaupungin parhaimmat keskustanäkymät. Historiallinen Lackmanin talo on täydellisesti saneerattu uuteen loistoonsa rakennusyhtiö Hartelan johdolla vuonna 2011 kaunista arkkitehtuuria kunnioittaen.",
+            "hinta":"1 290 000 €"
+        },
+        {
+            "kuva":"images/talo5.jpg",
+            "osoite":"Katajaharjuntie 18, 00200 Helsinki",
+            "koko":"9h+k+5kh+khh+3wc+s+ph+tk+et+at",
+            "kuvaus":"Huikean kaunis ja laadukas kokonaisuus arvostetulla alueella meren läheisyydessä Marjaniemessä. Tämä moitteettomassa kunnossa oleva ja hyvin suunniteltu talokaunotar on rakennettu vuonna 2000 ja kuntotarkastettu elokuussa 2014.",
+            "hinta":"5 300 000 €"
+        }
+        ]
+    }

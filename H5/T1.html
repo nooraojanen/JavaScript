@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T1</title>
+</head>
+
+<body>
+    <h1>Lukujen summa</h1>
+    <form id="myForm">
+        Luku 1 : <input type="text" id="number1"><br/>
+        Luku 2 : <input type="text" id="number2"><br/><br/>
+        <input type="submit" value="Add"/><br/><br/>
+        <label id="result">Lukujen summa on </label>
+    </form>
+        
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#myForm").submit(function(e){
+                // remove default submit behavior
+                e.preventDefault();
+                // lue luvut lomakkeelta (ovat merkkijonoja)
+                var number1 = $("#number1").val();
+                var number2 = $("#number2").val();
+                var result = $("#result");
+                // ovat lukuja
+                if (isNaN(number1)) result.text("Luku 1 ei ole numero");
+                else if (isNaN(number2)) result.text("Luku 2 ei ole numero");
+                else {
+                    // laske ja näytä tulos
+                    var sum = parseFloat(number1)+parseFloat(number2);
+                    result.text("Lukujen summa on " + sum);
+            }
+        })
+    });
+
+    </script>
+</body>
+
+</html>

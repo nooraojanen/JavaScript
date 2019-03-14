@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>T6</title>
+      <meta charset="UTF-8">
+      <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+      <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+      <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+
+      <style>
+        #root {
+          padding-left: 20px;
+          padding-bottom: 20px;
+        }
+
+        img {
+          height: 200px;
+          width: 300px;
+        }
+      </style>
+  </head>
+
+  <body>
+    <h2>Autolaskuri</h2>
+    <p>Klikkaa mieleistä auton kuvaa</p>
+    <div id="root" class="box" style="background-color:lightblue;border-style:dashed; border-width: 1px; border-color: black;"></div>
+
+    <script type="text/babel">
+      
+
+      // Counter component
+      class Counter extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {count: props.initialCount};
+          this.handleClicke = this.handleClicke.bind(this);
+          this.handleClickp = this.handleClickp.bind(this);
+        }
+
+      // handle button click event
+      handleClicke () {
+          // this.props.initialCount++; <- doesn't work "read only property"
+          this.setState({count: this.state.count + 1});
+      }
+
+       // handle button click event
+       handleClickp () {
+          // this.props.initialCount++; <- doesn't work "read only property"
+          this.setState({count: this.state.count + 1});
+      }
+
+      render() {
+        return (
+          <div>
+              <p> Escorts : {this.state.count[0]}</p>
+              <img id="e" src='https://student.labranet.jamk.fi/~M0313/Web-ohjelmointi/H8/escort.jpg' onClick={this.handleClick.bind(this, 0)}/>
+              <p> Passats : {this.state.count}</p>
+              <img id="p" src='https://student.labranet.jamk.fi/~M0313/Web-ohjelmointi/H8/passat.jpg' onClick={this.handleClickp}/>
+          </div>
+        );
+      }
+
+    }
+
+      // render
+      ReactDOM.render(
+          <Counter initialCount={23}/>,
+          document.getElementById("root")
+      );
+
+    </script>
+  </body>
+</html>
+

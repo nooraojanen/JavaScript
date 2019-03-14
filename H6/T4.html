@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T4</title>
+</head>
+<body>
+    <form action="." oninput="z.value=a.value;drawToCanvas(a.value);">
+        Säädä nestepinnan korkeus<br><br>
+        <output id="z">100</output>cm<br>
+        0 cm <input type="range" min="0" max="200" value="100" id="a"> 200 cm<br><br>
+    </form>
+    <canvas id="myCanvas" width="800" height="400" style="border:1px solid #000000;">
+    <p>Tynnyrin pituus: 100cm<br>Tynnyrin halkaisija: 200cm<br>Tynnyrin tilavuus: 3141.59 litraa</p>
+    </canvas>
+    
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        ctx.font = "10px Arial";
+        ctx.fillText("Tynnyrin pituus: 100cm Tynnyrin halkaisija: 200cm Tynnyrin tilavuus: 3141.59 litraa",10,50);
+
+        function drawToCanvas(depth) {
+            depth = depth/100;
+            let h = 1 - depth;
+            let r = 1;
+            var canvas  = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.clearRect(0,0,800,400);
+            let vari = "lightblue";
+            ctx.beginPath();
+            let alkukulma = Math.PI/2 - Math.acos(h/r);
+            // let alfa = depth/200 * Math.PI/2;
+            ctx.arc(400, 200, 150, alkukulma, Math.PI - alkukulma);
+            ctx.fillStyle = vari;
+            ctx.fill();
+            ctx.stroke();
+            ctx.closePath();
+            
+        }
+        
+    </script>
+</body>
+</html>

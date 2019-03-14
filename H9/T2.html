@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>T1</title>
+    <style>
+        table {
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script type="text/babel">
+
+        // Highscores component
+        class Highscores extends React.Component {
+            constructor(props) {
+            super(props);
+            this.state = {highscores: [], loading:true};
+            this.onLoadClick = this.onLoadClick.bind(this);
+            this.getHighscores = this.getHighscores.bind(this);
+            }
+
+            render() {
+                // Jos dataa EI ole VIELÄ ladattu:
+                if (!this.state.loading) {
+                    return (   
+                    <main>
+                        <table border="1"><tbody>
+                            <h1>Highscores</h1>
+                            <p>Loading...</p>
+                        </tbody></table>
+                    </main>
+                        );
+                }
+
+            // Näytetään haettu JSON-data:
+            return (
+                <main>
+                    <table border="1"><tbody>
+                            <h1>Highscores</h1>
+                    {
+                        this.state.highscores.map((highscore, index) =>
+                                <ul key={index}>
+                                <li>{highscore.name} : {highscore.score} </li>
+                                </ul>
+                        )
+                    }
+                    <p><button onClick={this.onLoadClick}>Load scores</button></p>
+                    </tbody></table>
+                </main>
+                );
+            }
+        
+
+            // Tyhjätään mahdollisesti aiemmin haettu data ja haetaan uudelleen
+            onLoadClick () {
+                this.setState({highscores:[], loading:false});
+                this.getHighscores();
+            }
+
+            // ladataan henkilötiedot TAPA1 (siistein)
+            getHighscores () {
+                $.ajax({
+                    url: 'T1.json',
+                    cache: false,
+                    dataType: 'json'
+                }).done((data) => {
+                    setTimeout(() => this.setState({highscores: data.highscores, loading:true}), 3000);
+                }).fail((jqXHR, textStatus, errorThrown) => {
+                    console.log(textStatus+":"+errorThrown);
+                });
+            }
+
+        }
+
+            // render component
+            ReactDOM.render(
+                <Highscores />,
+                document.getElementById("root")
+            );
+    </script>
+
+</body>
+</html>
